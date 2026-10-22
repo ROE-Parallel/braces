@@ -186,6 +186,18 @@ console.log(braces.expand('a{b}c'));
 console.log(braces('a/{b,c}/d', { maxLength: 3 })); //=> throws an error
 ```
 
+### options.maxDepth
+
+**Type**: `Number`
+
+**Default**: `100`
+
+**Description**: Limit how deeply braces and parentheses can be nested. The value can only lower the default limit, never raise it. Input that nests deeper throws a `SyntaxError` instead of exhausting the call stack.
+
+```js
+console.log(braces('{{{a,b}}}', { maxDepth: 2 })); //=> throws an error
+```
+
 ### options.expand
 
 **Type**: `Boolean`

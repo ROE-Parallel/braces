@@ -32,6 +32,14 @@ Changelog entries are classified using the following labels _(from [keep-a-chang
 
 </details>
 
+## [3.0.4] - 2026-10-22
+
+Fork maintained by ROE-Parallel (`github:ROE-Parallel/braces`). Not published to npm.
+
+**Security**
+
+- Limit the brace and parentheses nesting depth in `parse()` (default `100`, configurable downwards with `options.maxDepth`). Deeply nested patterns under the character cap used to exhaust the call stack in `compile` and `expand` (`RangeError: Maximum call stack size exceeded`). They now throw a `SyntaxError`. Addresses GHSA-vfj7-8cjw-p6xm / CVE-2026-93687 (upstream issue #70), which has no upstream fix.
+
 ## [3.0.0] - 2018-04-08
 
 v3.0 is a complete refactor, resulting in a faster, smaller codebase, with fewer deps, and a more accurate parser and compiler.
